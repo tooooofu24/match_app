@@ -18,13 +18,16 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/events', 'EventController@showEvents')->middleware('auth');
-
-Route::get('/events/{id}', 'EventController@confirmEvent')->middleware('auth')->name('confirm');
-
+//イベント作成
 Route::get('/events/event/create', 'EventController@create')->middleware('auth');
-
 Route::post('/events/event/create', 'EventController@store')->middleware('auth');
+
+//イベント一覧
+Route::get('/events', 'EventController@showEvents')->middleware('auth');
+//イベント詳細
+Route::get('/events/{id}', 'EventController@confirmEvent')->middleware('auth');
+
+//イベント回答
+Route::get('/questions/{hashed_id}', 'AnswerController@showTop');
