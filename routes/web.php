@@ -30,4 +30,9 @@ Route::get('/events', 'EventController@showEvents')->middleware('auth');
 Route::get('/events/{id}', 'EventController@confirmEvent')->middleware('auth');
 
 //イベント回答
-Route::get('/questions/{hashed_id}', 'AnswerController@showTop');
+Route::group(['prefix' => '/questions/{hashed_id}', 'as' => 'answer.'], function () {
+    Route::get('/', 'AnswerController@showTop')->name('showTop');
+    Route::post('/{current_q}', 'AnswerController@showQuestions')->name('showQuestions');
+    Route::post('/answers/confirm', 'AnswerController@confirm')->name('confirm');
+    Route::post('/answers/store', 'AnswerController@store')->name('store');
+});

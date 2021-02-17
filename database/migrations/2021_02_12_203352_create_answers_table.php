@@ -28,17 +28,17 @@ class CreateAnswersTable extends Migration
             $table->integer('q7');
             $table->integer('q8');
             $table->integer('q9');
-            $table->integer('q10');
-            $table->integer('q11');
-            $table->integer('q12');
-            $table->integer('q13');
-            $table->integer('q14');
-            $table->integer('q15');
-            $table->integer('q16');
-            $table->integer('q17');
-            $table->integer('q18');
-            $table->integer('q19');
-            $table->integer('q20');
+            $table->integer('q10')->nullable();
+            $table->integer('q11')->nullable();
+            $table->integer('q12')->nullable();
+            $table->integer('q13')->nullable();
+            $table->integer('q14')->nullable();
+            $table->integer('q15')->nullable();
+            $table->integer('q16')->nullable();
+            $table->integer('q17')->nullable();
+            $table->integer('q18')->nullable();
+            $table->integer('q19')->nullable();
+            $table->integer('q20')->nullable();
             $table->timestamps();
         });
     }
