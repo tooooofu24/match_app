@@ -9,7 +9,7 @@ use App\User;
 
 class Event extends Model
 {
-    protected $fillable = ['name', 'user_id', 'hashed_id'];
+    protected $fillable = ['name', 'user_id', 'hashed_id', 'outputed'];
 
     use SoftDeletes;
 

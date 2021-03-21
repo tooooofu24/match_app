@@ -2,6 +2,7 @@
 
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
 {
@@ -31,6 +32,7 @@ class UsersTableSeeder extends Seeder
         ];
 
         foreach ($dataSet as $data) {
+            $data['password'] = Hash::make($data['password']);
             User::create($data);
         }
     }
